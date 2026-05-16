@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dreams come true : 꿈의 도시</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Marcellus&family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+meta property="og:title" content="Dreams come true : 꿈의 도시">
+<meta property="og:description" content="꿈과 현실이 맞닿은 세계, 몽계의 기록">
+<meta property="og:image" content="https://your-site.com/thumbnail.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="wed.png">
+  
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:
+        radial-gradient(circle at top, rgba(104,132,255,0.18), transparent 35%),
+        radial-gradient(circle at bottom, rgba(255,173,233,0.12), transparent 30%),
+        linear-gradient(to bottom, #060816 0%, #0d1023 35%, #13172f 100%);
+    color:#dfe5ff;
+    font-family:'Pretendard', sans-serif;
+    overflow-x:hidden;
+    min-height:100vh;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+      radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.9), transparent),
+      radial-gradient(1px 1px at 90px 120px, rgba(255,255,255,0.7), transparent),
+      radial-gradient(2px 2px at 240px 80px, rgba(255,255,255,0.6), transparent),
+      radial-gradient(1px 1px at 340px 190px, rgba(255,255,255,0.6), transparent),
+      radial-gradient(2px 2px at 520px 230px, rgba(255,255,255,0.8), transparent);
+    background-size:600px 300px;
+    animation:stars 60s linear infinite;
+    opacity:0.8;
+    z-index:-3;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(183,211,255,0.18), transparent 18%),
+      radial-gradient(circle at 80% 20%, rgba(182,167,255,0.12), transparent 20%),
+      radial-gradient(circle at 70% 80%, rgba(143,168,255,0.14), transparent 22%);
+    filter:blur(40px);
+    z-index:-2;
+    animation:aurora 12s ease-in-out infinite alternate;
+}
+
+.bgm-btn{
+    position:fixed;
+    top:22px;
+    right:22px;
+    z-index:999;
+    border:none;
+    border-radius:999px;
+    padding:12px 20px;
+    background:rgba(255,255,255,0.06);
+    color:#dfe5ff;
+    backdrop-filter:blur(10px);
+    font-family:'Marcellus', serif;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.bgm-btn:hover{
+    background:rgba(180,190,255,0.12);
+}
+
+.meteor{
+    position:fixed;
+    width:160px;
+    height:2px;
+    background:linear-gradient(to right, rgba(255,255,255,0), rgba(220,230,255,0.8));
+    transform:rotate(-35deg);
+    opacity:0;
+    z-index:-1;
+}
+
+.meteor1{
+    top:12%;
+    left:70%;
+    animation:meteor 8s infinite;
+}
+
+.meteor2{
+    top:32%;
+    left:82%;
+    animation:meteor 11s infinite 2s;
+}
+
+.meteor3{
+    top:18%;
+    left:55%;
+    animation:meteor 9s infinite 5s;
+}
+
+@keyframes meteor{
+    0%{
+        opacity:0;
+        transform:translate(0,0) rotate(-35deg);
+    }
+    10%{
+        opacity:1;
+    }
+    100%{
+        opacity:0;
+        transform:translate(-420px,320px) rotate(-35deg);
+    }
+}
+
+.particles{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:-1;
+}
+
+.particle{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:rgba(255,255,255,0.9);
+    border-radius:50%;
+    box-shadow:0 0 12px rgba(255,255,255,0.9);
+    animation:floatParticle linear infinite;
+}
+
+@keyframes floatParticle{
+    from{
+        transform:translateY(100vh) scale(0.7);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    to{
+        transform:translateY(-120px) scale(1.2);
+        opacity:0;
+    }
+}
+
+@keyframes aurora{
+    0%{
+        transform:translateY(0) translateX(0);
+    }
+    100%{
+        transform:translateY(-20px) translateX(10px);
+    }
+}
+
+@keyframes stars{
+    from{transform:translateY(0);}
+    to{transform:translateY(-300px);}
+}
+
+header{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+    position:relative;
+}
+
+header::after{
+    content:"";
+    position:absolute;
+    width:540px;
+    height:540px;
+    border-radius:50%;
+    background:
+      radial-gradient(circle, rgba(210,220,255,0.22), rgba(120,140,255,0.08) 45%, transparent 72%);
+    box-shadow:
+      0 0 80px rgba(180,200,255,0.18),
+      0 0 180px rgba(130,150,255,0.1);
+    z-index:-1;
+    animation:moonFloat 8s ease-in-out infinite alternate;
+}
+
+@keyframes moonFloat{
+    from{transform:translateY(0px);}
+    to{transform:translateY(-15px);}
+}
+
+.hero-sub{
+    font-family:'Marcellus', serif;
+    letter-spacing:6px;
+    color:#aeb7de;
+    margin-bottom:18px;
+    font-size:0.9rem;
+}
+
+h1{
+    font-family:'Cormorant Garamond', serif;
+    font-size:clamp(3rem, 9vw, 6.5rem);
+    line-height:1.1;
+    text-shadow:0 0 35px rgba(255,255,255,0.18);
+}
+
+.hero-desc{
+    margin-top:28px;
+    max-width:760px;
+    color:#bfc7ea;
+    line-height:1.9;
+    font-size:1.05rem;
+}
+
+.scroll{
+    font-family:'Cormorant Garamond', serif;
+    margin-top:55px;
+    color:#aeb7d8;
+    opacity:0.8;
+    animation:float 2s infinite ease-in-out;
+}
+
+.typing-text{
+    margin-top:28px;
+    color:#bcc7ea;
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.3rem;
+    letter-spacing:2px;
+    overflow:hidden;
+    white-space:nowrap;
+    border-right:1px solid rgba(255,255,255,0.4);
+    width:0;
+    animation:typing 4s steps(22,end) forwards, blink 0.8s infinite;
+}
+
+@keyframes typing{
+    from{width:0;}
+    to{width:280px;}
+}
+
+@keyframes blink{
+    50%{border-color:transparent;}
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(8px);}
+}
+
+section{
+    padding:120px 8vw;
+}
+
+.section-title{
+    letter-spacing:2px;
+    font-family:'Cormorant Garamond', serif;
+    font-size:2.8rem;
+    margin-bottom:18px;
+    text-align:center;
+}
+
+.section-sub{
+    text-align:center;
+    color:#9fa8ca;
+    margin-bottom:60px;
+    line-height:1.8;
+}
+
+.world-box{
+    background:rgba(16,20,43,0.65);
+    border:1px solid rgba(255,255,255,0.05);
+    backdrop-filter:blur(14px);
+    border-radius:32px;
+    padding:50px;
+    box-shadow:0 0 45px rgba(0,0,0,0.28);
+}
+
+.world-box h3{
+    font-family:'Marcellus', serif;
+    letter-spacing:1px;
+    font-size:2rem;
+    margin-bottom:20px;
+    color:#c9d1f5;
+}
+
+.world-box p{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.25rem;
+    letter-spacing:0.4px;
+    line-height:2;
+    color:#b8c0df;
+}
+
+.region-grid,
+.group-grid{
+    margin-bottom:70px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:26px;
+    margin-top:40px;
+}
+
+.region-card,
+.group-card{
+    cursor:pointer;
+    cursor:pointer;
+    position:relative;
+    background:linear-gradient(145deg, rgba(29,35,71,0.9), rgba(17,20,43,0.8));
+    border:1px solid rgba(255,255,255,0.05);
+    border-radius:28px;
+    padding:28px;
+    overflow:hidden;
+    transition:0.4s;
+}
+
+.region-card::before,
+.group-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg, rgba(180,190,255,0.08), transparent 40%);
+    pointer-events:none;
+}
+
+.region-card:hover,
+.group-card:hover,
+.character-card:hover{
+    box-shadow:
+      0 0 25px rgba(180,190,255,0.12),
+      0 20px 40px rgba(0,0,0,0.42);
+}
+
+.character-card:hover .character-image{
+    background:#12162b;
+    width:100%;
+    height:320px;
+    flex-shrink:0;
+    position:relative;
+    overflow:hidden;
+    filter:brightness(1.05);
+}
+
+.character-card:hover::after{
+    content:"✦ ✦ ✦";
+    position:absolute;
+    top:18px;
+    right:20px;
+    color:rgba(220,230,255,0.45);
+    letter-spacing:4px;
+    animation:sparkle 1.8s infinite ease-in-out;
+}
+
+@keyframes sparkle{
+    0%,100%{opacity:0.2;}
+    50%{opacity:0.8;}
+}
+
+.group-card:hover,
+.character-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+.region-card h4,
+.group-card h4{
+    font-family:'Marcellus', serif;
+    letter-spacing:1px;
+    font-size:1.5rem;
+    margin-bottom:12px;
+    color:#bcc7f2;
+}
+
+.region-card p,
+.group-card p{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.15rem;
+    letter-spacing:0.3px;
+    color:#d6dcff;
+    line-height:1.8;
+}
+
+.threats{
+    margin-top:60px;
+    display:grid;
+    gap:24px;
+}
+
+.threat-card{
+    font-family:'Cormorant Garamond', serif;
+    letter-spacing:0.3px;
+    line-height:1.7;
+}
+
+.threat-card{
+    background:rgba(43,45,92,0.22);
+    border:1px solid rgba(162,174,255,0.16);
+    border-radius:28px;
+    padding:34px;
+}
+
+.threat-card h4{
+    font-family:'Marcellus', serif;
+    letter-spacing:1px;
+    font-weight:600;
+    font-family:'Marcellus', serif;
+    letter-spacing:1px;
+    color:#b8b8f0;
+    margin-bottom:12px;
+    font-size:1.4rem;
+}
+
+.group-characters{
+    display:none;
+    margin-top:28px;
+    animation:fadeIn 0.5s ease;
+}
+
+.group-characters.active{
+    display:block;
+}
+
+.helios-open.active{
+    animation:heliosReveal 0.9s ease;
+}
+
+.helios-secret{
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+}
+
+.helios-secret::before{
+    content:"???";
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    height:100%;
+    font-family:'Marcellus', serif;
+    font-size:2rem;
+    letter-spacing:8px;
+    color:rgba(220,230,255,0.78);
+    z-index:5;
+    transition:0.6s ease;
+    text-shadow:0 0 18px rgba(180,190,255,0.35);
+}
+
+.helios-secret.revealed .character-image::before{
+    opacity:0;
+    transition:0.8s ease;
+}
+
+.helios-secret.revealed::before{
+    opacity:0;
+    pointer-events:none;
+}
+
+.helios-secret .character-image{
+    filter:blur(5px) brightness(0.55);
+    transition:0.8s ease;
+}
+
+.helios-secret .character-image::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle at center, rgba(180,190,255,0.12), transparent 60%),
+      linear-gradient(to bottom, rgba(4,6,16,0.15), rgba(4,6,16,0.72));
+    z-index:2;
+}
+
+.helios-secret.revealed .character-image{
+    filter:blur(0) brightness(1);
+}
+
+.helios-secret::after{
+    content:"Tap to reveal";
+    position:absolute;
+    bottom:18px;
+    left:50%;
+    transform:translateX(-50%);
+    color:rgba(220,230,255,0.4);
+    font-size:0.8rem;
+    letter-spacing:3px;
+    z-index:6;
+    transition:0.5s;
+}
+
+.helios-secret.revealed::after{
+    opacity:0;
+}
+
+.helios-secret .character-top,
+.helios-secret .character-body{
+    opacity:0;
+    filter:blur(6px);
+    transform:translateY(10px);
+    transition:0.6s ease;
+}
+
+.helios-secret.revealed .character-top,
+.helios-secret.revealed .character-body{
+    opacity:1;
+    filter:blur(0);
+    transform:translateY(0);
+}
+
+@keyframes heliosReveal{
+    from{
+        opacity:0;
+        transform:translateY(14px);
+        filter:blur(6px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+        filter:blur(0);
+    }
+}
+    to{
+        opacity:1;
+        transform:translateY(0);
+        filter:blur(0);
+    }
+}
+    to{
+        opacity:1;
+        transform:translateY(0);
+        filter:blur(0);
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.character-section{
+    scroll-margin-top:120px;
+    margin-top:90px;
+}
+
+.character-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+    gap:28px;
+}
+
+.character-card{
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    overflow:hidden;
+    transform-style:preserve-3d;
+    background:rgba(15,18,39,0.88);
+    border:1px solid rgba(255,255,255,0.05);
+    border-radius:30px;
+    overflow:hidden;
+    position:relative;
+    transition:0.4s;
+}
+
+.character-image{
+    position:relative;
+    width:100%;
+    height:320px;
+    overflow:hidden;
+    background:
+      linear-gradient(to bottom, rgba(120,130,255,0.18), rgba(20,24,45,0.85)),
+      radial-gradient(circle at top, rgba(220,230,255,0.16), transparent 60%),
+      #12162b;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.character-image::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(to bottom, rgba(120,130,255,0.08), rgba(8,10,20,0.42));
+    z-index:2;
+    pointer-events:none;
+}
+
+.character-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    display:block;
+    position:relative;
+    z-index:1;
+}
+
+.character-top{
+    overflow:hidden;
+    padding:34px 30px 18px;
+    position:relative;
+    background:
+      linear-gradient(to bottom, rgba(200,210,255,0.08), transparent),
+      radial-gradient(circle at top right, rgba(168,176,255,0.16), transparent 40%);
+}
+
+.character-role{
+    display:inline-block;
+    padding:7px 14px;
+    border-radius:999px;
+    background:rgba(255,255,255,0.05);
+    font-size:0.8rem;
+    color:#b6c3ea;
+    margin-bottom:18px;
+}
+
+.character-name{
+    font-family:'Marcellus', serif;
+    letter-spacing:1px;
+    font-size:2rem;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.character-meta{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.08rem;
+    color:#98a3c8;
+    line-height:1.8;
+    font-size:0.96rem;
+}
+
+.character-body{
+    padding:0 30px 30px;
+}
+
+.personality{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.15rem;
+    letter-spacing:0.3px;
+    margin:22px 0;
+    line-height:1.9;
+    color:#cdd4ef;
+}
+
+.dream,
+.power{
+    color:#bcc4ff;
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.08rem;
+    letter-spacing:0.3px;
+    margin-top:18px;
+    padding:18px;
+    border-radius:18px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+.dream b{
+    color:#cfb6cc;
+}
+
+.power b{
+    color:#a8bfdc;
+}
+
+footer{
+    padding:60px 20px;
+    text-align:center;
+    color:#8f98bc;
+    border-top:1px solid rgba(255,255,255,0.06);
+    margin-top:100px;
+}
+
+.helios-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    justify-content:start;
+}
+
+@media(max-width:768px){
+
+    html{
+        font-size:14px;
+    }
+
+    header{
+        padding:80px 18px 60px;
+        min-height:85vh;
+    }
+
+    h1{
+        font-size:clamp(2.5rem, 13vw, 4.2rem);
+        line-height:1.15;
+    }
+
+    .hero-desc{
+        font-size:0.95rem;
+        line-height:1.8;
+        padding:0 6px;
+    }
+
+    section{
+        padding:80px 18px;
+    }
+
+    .section-title{
+        font-size:2.1rem;
+    }
+
+    .world-box{
+        padding:28px 20px;
+        border-radius:24px;
+    }
+
+    .world-box p,
+    .region-card p,
+    .group-card p,
+    .personality,
+    .dream,
+    .power{
+        font-size:1rem;
+        line-height:1.75;
+    }
+
+    .region-grid,
+    .group-grid,
+    .character-grid{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .group-card,
+    .region-card,
+    .character-card,
+    .threat-card{
+        border-radius:24px;
+    }
+
+    .character-image{
+        height:240px;
+    }
+
+    .character-top{
+        padding:26px 22px 14px;
+    }
+
+    .character-body{
+        padding:0 22px 24px;
+    }
+
+    .character-name{
+        font-size:1.7rem;
+    }
+
+    .typing-text{
+        font-size:1rem;
+        width:auto;
+        border-right:none;
+        animation:none;
+    }
+
+    .bgm-btn{
+        top:14px;
+        right:14px;
+        padding:10px 16px;
+        font-size:0.85rem;
+    }
+
+    header::after{
+        width:320px;
+        height:320px;
+    }
+
+    .meteor{
+        opacity:0.45;
+    }
+}
+
+    .world-box{
+        padding:34px 24px;
+    }
+
+    .character-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+<body onmousemove="parallax(event)">
+
+<div class="meteor meteor1"></div>
+<div class="meteor meteor2"></div>
+<div class="meteor meteor3"></div>
+
+<button class="bgm-btn" onclick="toggleBGM()">♫ BGM</button>
+
+<audio id="bgm" loop>
+    <source src="glass_piano.mp3" type="audio/mpeg">
+</audio>
+
+<div class="particles">
+    <span class="particle" style="left:5%; animation-duration:16s; animation-delay:-2s;"></span>
+    <span class="particle" style="left:12%; animation-duration:22s; animation-delay:-5s;"></span>
+    <span class="particle" style="left:20%; animation-duration:18s; animation-delay:-8s;"></span>
+    <span class="particle" style="left:28%; animation-duration:26s; animation-delay:-3s;"></span>
+    <span class="particle" style="left:35%; animation-duration:20s; animation-delay:-10s;"></span>
+    <span class="particle" style="left:44%; animation-duration:24s; animation-delay:-6s;"></span>
+    <span class="particle" style="left:53%; animation-duration:17s; animation-delay:-12s;"></span>
+    <span class="particle" style="left:61%; animation-duration:28s; animation-delay:-4s;"></span>
+    <span class="particle" style="left:70%; animation-duration:19s; animation-delay:-9s;"></span>
+    <span class="particle" style="left:78%; animation-duration:25s; animation-delay:-7s;"></span>
+    <span class="particle" style="left:87%; animation-duration:21s; animation-delay:-11s;"></span>
+    <span class="particle" style="left:95%; animation-duration:29s; animation-delay:-1s;"></span>
+</div>
+
+<header>
+    <div class="hero-sub">DREAM WORLD ARCHIVE</div>
+    <h1>Dreams come true<br>꿈의 도시</h1>
+
+    <p class="hero-desc">
+        사람들은 꿈을 꾼다.<br>
+        누군가는 사랑을, 누군가는 돈을, 누군가는 명예를.
+        비록 이뤄지지는 못 하더라도— 우리는, 꿈을 꾸며 나아가고 있다.
+    </p>
+
+    <div class="scroll">✦ Scroll Down ✦</div>
+
+    <div class="typing-text">“꿈은 사라지지 않아.”</div>
+</header>
+
+<section>
+    <h2 class="section-title">세계관</h2>
+    <p class="section-sub">
+        꿈이 잠든 세계 ― 몽계.<br>
+        몽계를 이루는 수많은 지역들과 꿈을 뒤흔드는 위협들.
+    </p>
+
+    <div class="world-box">
+        <h3>몽계</h3>
+        <p>
+            꿈과 현실이 맞닿아 있는 세계.<br>
+            이곳의 사람들은 현세의 기억을 잃은 채 각자의 꿈을 품고 살아가고 있다.
+            꿈은 단순한 소망이 아니라 힘의 근원이 되며,
+            강한 열망은 능력으로 발현된다.
+        </p>
+    </div>
+
+    <div class="region-grid">
+        <div class="region-card">
+            <h4>중앙 - 네이러스</h4>
+            <p>
+                꿈 관리국과 꿈 서점이 자리한 거대한 중앙 도시.
+                첨단 기술과 꿈 에너지 산업이 발달했으며, 몽계 전체의 질서와 흐름을 관리하는 중심지이다.
+                
+            </p>
+        </div>
+
+        <div class="region-card">
+            <h4>북부 - 글라시에르</h4>
+            <p>
+                베르타의 가문이 다스리는 끝없는 설원 지역.
+                차갑고 엄격한 귀족 문화가 뿌리내려 있으며, 현실 조사단의 탐정소도 이곳에 위치해 있다.
+            </p>
+        </div>
+
+        <div class="region-card">
+            <h4>동부 - 테네브라</h4>
+            <p>
+                악몽상인단의 거점이 위치한 거대한 빈민 지구.
+                암시장과 불법 꿈 거래가 활발하게 이루어지고 있으며, 몽계의 어두운 뒷면이라 불리는 지역이다.
+            </p>
+        </div>
+
+        <div class="region-card">
+            <h4>남부 - 리베룸</h4>
+            <p>
+                자유몽 유랑단이 활동하는 남부 자유 지대.
+                복잡한 규율보다는 자유와 낭만을 중시하는 분위기이며, 다양하고 독특한 형태의 꿈 문화가 발달해 있다.
+            </p>
+        </div>
+
+        <div class="region-card">
+            <h4>서부 - 루이나스</h4>
+            <p>
+                악몽화가 심하게 진행되어 봉쇄된 서부 폐허 지역.
+                현재는 일반인의 출입이 금지되어 있으며, 꿈 사냥꾼의 본거지로 의심받고 있다.
+            </p>
+        </div>
+    </div>
+
+    <div class="region-grid">
+        <div class="region-card">
+            <h4>악몽화</h4>
+            <p>
+                꿈을 포기하거나 깊은 절망에 잠식될 경우 발생하는 오염 현상.
+                악몽화가 진행될수록 인간성을 잃어가며, 끝내 악몽체로 변이한다.
+            </p>
+        </div>
+      
+     <div class="region-card">
+            <h4>악몽체</h4>
+            <p>
+                악몽화로 인해 탄생한 존재. 위험도에 따라 특급 > 상급 > 중급 > 하급으로 구분된다.
+            </p>
+        </div>
+
+        <div class="region-card">
+            <h4>꿈 사냥꾼</h4>
+            <p>
+                사람들의 꿈을 수확해가는 수수께끼의 존재. 꿈을 빼앗긴 사람은 삶의 목적과 열망을 잃고 방황하게 되지만, 악몽화에는 빠지지 않는다.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">세력 & 인물</h2>
+    <p class="section-sub">
+        서로 다른 꿈을 품으며 몽계에서 살아가는 사람들.
+    </p>
+
+    <div class="group-grid">
+
+        <div>
+            <div class="group-card" onclick="toggleGroup('dreamstore')">
+                <h4>꿈서점</h4>
+                <p>사람들의 꿈을 기록하고 출판하는 신비한 서점.</p>
+            </div>
+
+            <div class="group-characters" id="dreamstore">
+                <div class="character-grid">
+                    <div class="character-card">
+                        <div class="character-image">
+                        <img src="https://raw.githubusercontent.com/dontond/Dr/refs/heads/main/P-2.png" alt="세레나">
+                        </div>
+                        <div class="character-top">
+                            <div class="character-role">꿈서점 · 조수</div>
+                            <div class="character-name">세레나</div>
+                            <div class="character-meta">여성 · 토끼 수인 · 중립 선 · 6w5 · INFJ</div>
+                        </div>
+                        <div class="character-body">
+                            <div class="personality">
+                                당신을 동경하여 곁에서 조용히 서점을 돕고 있다.
+                                겉보기엔 온화하고 친절하지만, 은근히 위험한 취향을 숨기고 있다. 본인은 필사적으로 부정하는 중.
+                            </div>
+                            <div class="dream"><b>꿈</b><br>사람들의 꿈이 사라지지 않도록 곁에 남는 것</div>
+                            <div class="power"><b>능력</b><br>사람들의 꿈과 감정을 책으로 기록 · 보존</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="group-card" onclick="toggleGroup('bureau')">
+                <h4>꿈 관리국</h4>
+                <p>몽계를 관리하는 중앙 정부 기관.</p>
+            </div>
+
+            <div class="group-characters" id="bureau">
+                <div class="character-grid">
+                    <div class="character-card">
+                        <div class="character-image">
+                        <img src="https://raw.githubusercontent.com/dontond/Dr/refs/heads/main/A-2.png" alt="이리시야">
+                        </div>
+                        <div class="character-top">
+                            <div class="character-role">꿈 관리국 · 총감독관</div>
+                            <div class="character-name">이리시야</div>
+                            <div class="character-meta">여성 · 질서 선 · 1w2 · ENTJ</div>
+                        </div>
+                        <div class="character-body">
+                            <div class="personality">온화한 인상과 달리 냉철한 판단력을 지닌 인물.
+                                                     필요하다면 이상을 위해 현실적인 선택도 주저하지 않는다.</div>
+                            <div class="dream"><b>꿈</b><br>모두가 꿈을 포기하지 않는 세계</div>
+                            <div class="power"><b>능력</b><br>사람들의 꿈을 시각화 · 관측 · 간섭</div>
+                        </div>
+                    </div>
+
+                    <div class="character-card">
+                        <div class="character-image">
+                        <img src="https://raw.githubusercontent.com/dontond/Dr/refs/heads/main/B-2.png" alt="세라피나">
+                        </div>
+                        <div class="character-top">
+                            <div class="character-role">꿈 관리국 · 경호원</div>
+                            <div class="character-name">세라피나</div>
+                            <div class="character-meta">여성 · 질서 중립 · 6w5 · ISTJ</div>
+                        </div>
+                        <div class="character-body">
+                            <div class="personality">이리시야의 비서 겸 경호원.
+                              감정보다 임무를 우선하는 성격이지만, 이리시야에게만큼은 유독 과할 정도로 충성심이 강하다.</div>
+                            <div class="dream"><b>꿈</b><br>그 분이 끝까지 꿈을 잃지 않는 것</div>
+                            <div class="power"><b>능력</b><br>전자기 · 운동 궤도 지배, 레일건 사용</div>
+                          </div>
+                    </div>
+                  
+                    <div class="character-card">
+                        <div class="character-image">
+                        <img src="https://raw.githubusercontent.com/dontond/Dr/refs/heads/main/C-2.png" alt="코코">
+                        </div>
+                        <div class="character-top">
+                            <div class="character-role">꿈 관리국 · 제작부장</div>
+                            <div class="character-name">코코</div>
+                            <div class="character-meta">여성 · 혼돈 선 · 7w6 · ENFP</div>
+                        </div>
+                        <div class="character-body">
+                            <div class="personality">항상 밝고 에너지 넘치는 분위기의 엔지니어.
+                                                     새로운 발명과 실험이라면 위험성도 크게 신경 쓰지 않는 편이다.</div>
+                            <div class="dream"><b>꿈</b><br>사람들의 꿈을 형태로 만드는 것</div>
+                            <div class="power"><b>능력</b><br>꿈 에너지를 물질화·기계화</div>
+                        </div>
+                    </div>
+                    <div class="character-card">
+                        <div class="character-image">
+                        <img src="https://raw.githubusercontent.com/dontond/Dr/refs/heads/main/D-2.png" alt="루카스">
+                        </div>
+                        <div class="character-top">
+                            <div class="character-role">꿈 관리국 · 감시부장</div>
+                            <div class="character-name">루카스</div>
+                            <div class="character-meta">남성 · 혼돈 중립 · 7w8 · ENTP</div>
+                        </div>
+                        <div class="character-body">
+                            <div class="personality">업무 시간에 종종 몰래 북부 주점으로 사라지곤 하지만,
+                                                     정작 중요한 순간에는 누구보다 빠르고 위험하게 움직인다.</div>
+                            <div class="dream"><b>꿈</b><br>아무것도 잃지 않고 자유롭게 사는 것</div>
+                            <div class="power"><b>능력</b><br>결과까지의 과정 생략, 쌍권총 사용</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="group-card" onclick="toggleGroup('nightmare')">
+                <h4>악몽상인단</h4>
+                <p>버려진 꿈과 악몽을 수집하는 집단.</p>
+            </div>
+
+            <div class="group-characters" id="nightmare">
+                <div class="character-grid">
+                    <div class="character-card">
+                        <div class="character-image">
+                        <img src="https://raw.githubusercontent.com/dontond/Dr/refs/heads/main/E-2.png" alt="로자리아">
+                        </div>
+                        <div class="character-top">
+                            <div class="character-role">악몽상인단 · 리더</div>
+                            <div class="character-name">로자리아</div>
+                            <div class="character-meta">여성 · 중립 · 2w1 · ISFJ</div>
+                        </div>
+                        <div class="character-body">
+                            <div class="personality">차갑고 위험한 분위기를 풍기지만,
+                                                     실제로는 정이 많은 성격이며 특히 연애에 있어서는 누구보다도 서툴다.</div>
+                            <div class="dream"><b>꿈</b><br>버려진 꿈조차 끝까지 존재하는 세계</div>
+                            <div class="power"><b>능력</b><br>꿈 · 악몽 거래 및 추출, 카타나 사용</div>
+                          </div>
+                    </div>
+                  
+                    <div class="character-card">
+                        <div class="character-image">
+                        <img src="https://raw.githubusercontent.com/dontond/Dr/refs/heads/main/F-2.png" alt="키라라">
+                        </div>
+                        <div class="character-top">
+                            <div class="character-role">악몽상인단 · 악동</div>
+                            <div class="character-name">키라라</div>
+                            <div class="character-meta">여성 · 혼돈 악 · 7w8 · ENTP</div>
+                        </div>
+                        <div class="character-body">
+                            <div class="personality">악몽상인단에서 가장 악명이 높은 말썽꾸러기.
+                                                     예측 불가능한 행동으로 주변 사람들을 휘두르며, 항상 재밌는 일을 찾아다닌다.</div>
+                            <div class="dream"><b>꿈</b><br>세상을 마음대로 갖고노는 것</div>
+                            <div class="power"><b>능력</b><br>현실·인식 왜곡, 쌍단검 사용</div>
+                          </div>
+                    </div>
+                    <div class="character-card">
+                        <div class="character-image">
+                        <img src="https://raw.githubusercontent.com/dontond/Dr/refs/heads/main/G-2.png" alt="샤오">
+                        </div>
+                        <div class="character-top">
+                            <div class="character-role">악몽상인단 · 재정관리</div>
+                            <div class="character-name">샤오</div>
+                            <div class="character-meta">남성 · 중립 · 9w8 · ISTP</div>
+                        </div>
+                        <div class="character-body">
+                            <div class="personality">항상 피곤해 보이는 얼굴을 하고 있으며, 귀찮은 일은 가능한 한 피하려고 한다.
+                                                     하지만 손해 보는 상황은 싫어해 계산과 거래에는 꽤 예민한 편.
+                            </div>   
+                            <div class="dream"><b>꿈</b><br>아무 노력 없이 평화롭게 사는 것</div>
+                            <div class="power"><b>능력</b><br>가치와 대가 조정, 철 야구방망이 사용</div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+    <div class="group-card" onclick="toggleGroup('wanderers')">
+        <h4>자유몽 유랑단</h4>
+        <p>규율보다 자유와 낭만을 추구하는 오래된 유랑 집단.</p>
+    </div>
+
+    <div class="group-characters" id="wanderers">
+        <div class="character-grid">
+
+            <div class="character-card">
+                <div class="character-image">
+                    <img src="https://raw.githubusercontent.com/dontond/Dr/refs/heads/main/H-2.png" alt="베티">
+                </div>
+
+                <div class="character-top">
+                    <div class="character-role">자유몽 유랑단 · 대표</div>
+                    <div class="character-name">베티</div>
+                    <div class="character-meta">
+                        여성 · 양 수인 · 혼돈 선 · 9w8 · ENFP
+                    </div>
+                </div>
+
+                <div class="character-body">
+                    <div class="personality">
+                        늘 나른한 말투와 귀여운 미소를 머금고 있지만,
+                        몽계의 오래된 역사와 비밀을 가장 많이 알고 있는 인물 중 하나다.
+                    </div>
+
+                    <div class="dream"><b>꿈</b><br>누구도 꿈에 사슬을 채우지 못하는 세계</div>
+                    <div class="power"><b>능력</b><br>꿈의 흐름을 다루는 원초적 힘</div>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="character-image">
+                    <img src="https://raw.githubusercontent.com/dontond/Dr/refs/heads/main/I-2.png" alt="베니">
+                </div>
+
+                <div class="character-top">
+                    <div class="character-role">자유몽 유랑단 · 행동대장</div>
+                    <div class="character-name">베니</div>
+                    <div class="character-meta">
+                        남성 · 양 수인 · 중립 선 · 5w6 · INTJ
+                    </div>
+                </div>
+
+                <div class="character-body">
+                    <div class="personality">
+                        베티의 쌍둥이 남동생. 항상 틱틱거리지만 누구보다도 배려심이 깊은 소년. 베티보다 일 분 늦게 태어난 탓에
+                        최고령자 자리를 빼앗긴 것을 은근히 신경 쓰고 있다.
+                    </div>
+
+                    <div class="dream"><b>꿈</b><br>끝까지 저 바보 누나를 지켜보는 것</div>
+                    <div class="power"><b>능력</b><br>흔들리는 꿈과 현실 고정</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="group-card" onclick="toggleGroup('investigation')">
+        <h4>현실 조사단</h4>
+        <p>현실의 균열을 추적하는 탐정사.</p>
+    </div>
+
+    <div class="group-characters" id="investigation">
+        <div class="character-grid">
+
+            <div class="character-card">
+                <div class="character-image">
+                    <img src="https://raw.githubusercontent.com/dontond/Dr/refs/heads/main/J-2.png" alt="카르시안">
+                </div>
+
+                <div class="character-top">
+                    <div class="character-role">현실 조사단 · 탐정</div>
+                    <div class="character-name">카르시안</div>
+                    <div class="character-meta">
+                        남성 · 질서 중립 · 1w9 · ISTJ
+                    </div>
+                </div>
+
+                <div class="character-body">
+                    <div class="personality">
+                        몽계에 ‘현실’의 존재를 처음으로 알린 인물.
+                        감정보다 논리와 사실을 우선하며, 작은 위화감조차 놓치지 않는 집요함을 지니고 있다.
+                    </div>
+
+                    <div class="dream"><b>꿈</b><br>거짓 없는 진실에 도달하는 것</div>
+                    <div class="power"><b>능력</b><br>현실성과 개연성 관측</div>
+                </div>
+            </div>
+
+            <div class="character-card">
+                <div class="character-image">
+                    <img src="https://raw.githubusercontent.com/dontond/Dr/refs/heads/main/K-2.png" alt="릴리에">
+                </div>
+
+                <div class="character-top">
+                    <div class="character-role">현실 조사단 · 조수</div>
+                    <div class="character-name">릴리에</div>
+                    <div class="character-meta">
+                        여성 · 중립 선 · 6w7 · INFP
+                    </div>
+                </div>
+
+                <div class="character-body">
+                    <div class="personality">
+                        소심하고 겁이 많은 울보이지만,
+                        누군가를 위해서라면 끝까지 용기를 내려고 노력하는 소녀.
+                    </div>
+
+                    <div class="dream"><b>꿈</b><br>누군가를 지켜낼 수 있는 사람이 되는 것</div>
+                    <div class="power"><b>능력</b><br>목표 연결, 저격총 사용</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="group-card" onclick="toggleGroup('vlg')">
+        <h4>V.L.G</h4>
+        <p>베르타가 이끄는 해결사 집단.</p>
+    </div>
+
+    <div class="group-characters" id="vlg">
+        <div class="character-grid">
+
+            <div class="character-card">
+                <div class="character-image">
+                    <img src="https://raw.githubusercontent.com/dontond/Dr/refs/heads/main/L-2.png" alt="베르타">
+                </div>
+
+                <div class="character-top">
+                    <div class="character-role">V.L.G · 보스</div>
+                    <div class="character-name">베르타</div>
+                    <div class="character-meta">
+                        여성 · 흑표범 수인 · 혼돈 중립 · 4w3 · INFP
+                    </div>
+                </div>
+
+                <div class="character-body">
+                    <div class="personality">
+                        항상 고귀하고 위압적인 말투와 서늘한 분위기를 유지하고 있으나,
+                        의외로 허술한 모습의 허당 중2병 보스.
+                    </div>
+
+                    <div class="dream"><b>꿈</b><br>세상에서 가장 압도적인 존재가 되는 것</div>
+                    <div class="power"><b>능력</b><br>자신을 특별하게 인식할수록 강해짐</div>
+                  </div>
+            </div>
+
+            <div class="character-card">
+                <div class="character-image">
+                    <img src="https://raw.githubusercontent.com/dontond/Dr/refs/heads/main/M-2.png" alt="히요리">
+                </div>
+
+                <div class="character-top">
+                    <div class="character-role">V.L.G · 수습담당</div>
+                    <div class="character-name">히요리</div>
+                    <div class="character-meta">
+                        여성 · 중립 선 · 2w3 · ENFJ
+                    </div>
+                </div>
+
+                <div class="character-body">
+                    <div class="personality">
+                        문제투성이인 구성원들을 돌보고 있는 조직의 보호자 역할.
+                        사실 현재의 V.L.G 역시 베르타의 외로운 장단을 맞춰주기 위해 히요리가 직접 설립한 조직이다.
+                    </div>
+
+                    <div class="dream"><b>꿈</b><br>돌아올 곳이 있는 사람들을 만드는 것</div>
+                    <div class="power"><b>능력</b><br>안정·보호·회복 계열, 부채 사용</div>
+                  </div>
+            </div>
+
+            <div class="character-card">
+                <div class="character-image">
+                    <img src="https://raw.githubusercontent.com/dontond/Dr/refs/heads/main/N-2.png" alt="벨제브">
+                </div>
+
+                <div class="character-top">
+                    <div class="character-role">V.L.G · 잡일담당</div>
+                    <div class="character-name">벨제브</div>
+                    <div class="character-meta">
+                        여성 · 질서 중립 · 5w6 · INTJ
+                    </div>
+                </div>
+
+                <div class="character-body">
+                    <div class="personality">
+                        항상 표정은 뾰루퉁하며, 말투는 차갑고 퉁명스럽지만—
+                        조직을 유지하기 위해 누구보다도 많이 움직이는 실무 담당이다.
+                    </div>
+
+                    <div class="dream"><b>꿈</b><br>끝까지 이곳을 지켜내는 것</div>
+                    <div class="power"><b>능력</b><br>관리·배제 특화, 거대한 가시 쇠구슬이 달린 긴 체인 사용</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+
+    <div class="group-card helios-card" onclick="toggleGroup('hunter')">
+        <h4>무소속 · 꿈 사냥꾼</h4>
+        <p>몽계의 어둠 속에서 꿈을 수확하는 수수께끼의 존재.</p>
+    </div>
+
+    <div class="group-characters helios-open" id="hunter">
+                <div class="character-grid helios-grid">
+        <div class="character-grid" style="margin-top:28px;">
+
+            <div class="character-card helios-character helios-secret" onclick="revealHunter(this)">
+
+                <div class="character-image">
+                    <img src="https://raw.githubusercontent.com/dontond/Dr/refs/heads/main/O-2.png" alt="헬리오스">
+                </div>
+
+                <div class="character-top">
+                    <div class="character-role">무소속 · 꿈 사냥꾼</div>
+                    <div class="character-name">헬리오스</div>
+                    <div class="character-meta">
+                        남성 · 질서 악 · 8w9 · ISTP
+                    </div>
+                </div>
+
+                <div class="character-body">
+                    <div class="personality">
+                        감정 표현이 거의 없고 사고방식도 독특해
+                        주변 사람들이 쉽게 이해하지 못한다. 하지만, 의외로 단 음식을 좋아한다는 소문이 있다.
+                    </div>
+
+                    <div class="dream"><b>꿈</b><br>아무도 더는 꿈에 휘둘리지 않는 세계</div>
+                    <div class="power"><b>능력</b><br>타인의 꿈 추적 · 박탈 · 흡수, 거대한 낫 사용</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    Dreams come true : 꿈의 도시 <br>
+</footer>
+
+<script>
+function parallax(e){
+    const x = (window.innerWidth - e.pageX * 0.03)/100;
+    const y = (window.innerHeight - e.pageY * 0.03)/100;
+    document.body.style.backgroundPosition = `${x}px ${y}px`;
+}
+
+const bgm = document.getElementById('bgm');
+let isPlaying = false;
+
+function toggleBGM(){
+    if(isPlaying){
+        bgm.pause();
+        isPlaying = false;
+    }else{
+        bgm.volume = 0.45;
+        bgm.play();
+        isPlaying = true;
+    }
+}
+
+function revealHunter(card){
+    card.classList.add('revealed');
+}
+
+function toggleGroup(id){
+    const target = document.getElementById(id);
+    target.classList.toggle('active');
+}
+</script>
+</body>
+</html>
